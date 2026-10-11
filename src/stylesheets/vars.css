@@ -1,0 +1,25 @@
+:root {
+  --c-bg: #0a0a0a;
+  --c-bg-panel: #111111;
+  --c-border: #333333;
+  --c-border-light: #444444;
+  --c-acid-green: #c8ff00;
+  --c-glitch-red: #ff2a2a;
+  --c-text: #e0e0e0;
+  --c-text-dim: #666666;
+  --c-text-dark: #0a0a0a;
+  --c-white: #ffffff;
+
+  --font-main: 'IBM Plex Mono', monospace;
+  --font-pixel: 'VT323', monospace;
+
+  --border-w: 2px;
+  --border-w-thin: 1px;
+
+  --gap-xs: 4px;
+  --gap-sm: 8px;
+  --gap-md: 16px;
+  --gap-lg: 24px;
+  --gap-xl: 32px;
+  --gap-xxl: 64px;
+}

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NO SIGNAL</title>
+    <link rel="stylesheet" href="src/stylesheets/style.css" />
+    <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
+  </head>
+
+  <body>
+    <div class="app">
+      <header class="app__header">
+        <h1 class="app__title">NO SIGNAL</h1>
+
+        <nav class="stations">
+          <div class="station station--active" data-station="am">AM</div>
+          <div class="station" data-station="fm">FM</div>
+          <div class="station" data-station="noise">NOISE</div>
+        </nav>
+      </header>
+      <main class="app__main">
+        <section class="panel panel--air">
+          <h2 class="panel__title">VOICE AIR</h2>
+
+          <div class="toggle-set" data-set="airWaveform">
+            <div class="toggle-set__title">WAVEFORM</div>
+            <div class="toggle-set__buttons">
+              <div class="toggle toggle--active" data-value="sine">SINE</div>
+              <div class="toggle" data-value="square">SQUARE</div>
+            </div>
+          </div>
+
+          <div class="panel__knobs">
+            <div class="knob" data-knob="airBits" data-min="1" data-max="8">
+              <div class="knob__wrapper">
+                <div class="knob__body"></div>
+              </div>
+              <div class="knob__name">BITS</div>
+              <div class="knob__range">(1–8)</div>
+            </div>
+
+            <div
+              class="knob"
+              data-knob="airFilter"
+              data-min="0.1"
+              data-max="10"
+            >
+              <div class="knob__wrapper">
+                <div class="knob__body"></div>
+              </div>
+              <div class="knob__name">FILTER</div>
+              <div class="knob__range">(0.1–10 Hz)</div>
+            </div>
+
+            <div class="knob" data-knob="airDelay" data-min="0" data-max="0.9">
+              <div class="knob__wrapper">
+                <div class="knob__body"></div>
+              </div>
+              <div class="knob__name">DELAY</div>
+              <div class="knob__range">(0–0.9)</div>
+            </div>
+          </div>
+
+          <div class="slider" data-slider="airVolume">
+            <input
+              class="slider__input"
+              type="range"
+              min="0"
+              max="100"
+              step="1"
+              value="100"
+            />
+            <div class="slider__footer">
+              <span class="slider__title">VOLUME</span>
+              <span class="slider__value">100%</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel panel--noise">
+          <h2 class="panel__title">VOICE NOISE</h2>
+
+          <div class="toggle-set" data-set="noiseType">
+            <div class="toggle-set__title">NOISE TYPE</div>
+            <div class="toggle-set__buttons">
+              <div
+                class="toggle toggle--active toggle--noise"
+                data-value="white"
+              >
+                WHITE
+              </div>
+              <div class="toggle" data-value="pink">PINK</div>
+            </div>
+          </div>
+
+          <div class="panel__knobs">
+            <div
+              class="knob knob--noise"
+              data-knob="noiseDist"
+              data-min="0"
+              data-max="1"
+            >
+              <div class="knob__wrapper">
+                <div class="knob__body"></div>
+              </div>
+              <div class="knob__name">DIST</div>
+              <div class="knob__range">(0–1)</div>
+            </div>
+
+            <div
+              class="knob knob--noise"
+              data-knob="noiseWah"
+              data-min="50"
+              data-max="500"
+            >
+              <div class="knob__wrapper">
+                <div class="knob__body"></div>
+              </div>
+              <div class="knob__name">WAH</div>
+              <div class="knob__range">(50–500 Hz)</div>
+            </div>
+
+            <div
+              class="knob knob--noise"
+              data-knob="noiseFdbk"
+              data-min="0"
+              data-max="0.9"
+            >
+              <div class="knob__wrapper">
+                <div class="knob__body"></div>
+              </div>
+              <div class="knob__name">FDBK</div>
+              <div class="knob__range">(0–0.9)</div>
+            </div>
+          </div>
+
+          <div class="slider slider--noise" data-slider="noiseVolume">
+            <input
+              class="slider__input"
+              type="range"
+              min="0"
+              max="100"
+              step="1"
+              value="100"
+            />
+            <div class="slider__footer">
+              <span class="slider__title">VOLUME</span>
+              <span class="slider__value">100%</span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <section class="app__sequencer">
+        <h2 class="sequencer__title">SEQUENCER</h2>
+
+        <div class="sequencer">
+          <div class="sequencer-row sequencer-row--air">
+            <div class="sequencer-row__name">AIR</div>
+            <div class="step step--active" data-row="air" data-step="0"></div>
+            <div class="step" data-row="air" data-step="1"></div>
+            <div class="step step--active" data-row="air" data-step="2"></div>
+            <div class="step" data-row="air" data-step="3"></div>
+            <div class="step step--active" data-row="air" data-step="4"></div>
+            <div class="step" data-row="air" data-step="5"></div>
+            <div class="step step--active" data-row="air" data-step="6"></div>
+            <div class="step" data-row="air" data-step="7"></div>
+          </div>
+
+          <div class="sequencer-row sequencer-row--noise">
+            <div class="sequencer-row__name">NOISE</div>
+            <div class="step" data-row="noise" data-step="0"></div>
+            <div class="step step--active" data-row="noise" data-step="1"></div>
+            <div class="step" data-row="noise" data-step="2"></div>
+            <div class="step step--active" data-row="noise" data-step="3"></div>
+            <div class="step" data-row="noise" data-step="4"></div>
+            <div class="step step--active" data-row="noise" data-step="5"></div>
+            <div class="step" data-row="noise" data-step="6"></div>
+            <div class="step step--active" data-row="noise" data-step="7"></div>
+          </div>
+        </div>
+        <div class="transport">
+          <div class="toggle" id="droneButton">DRONE</div>
+          <div class="toggle" id="prophylaxisButton">PROPHYLAXIS</div>
+          <div class="button button--glitch" id="glitchButton">GLITCH</div>
+          <div class="button button--primary button--large" id="playButton">
+            ▶
+          </div>
+        </div>
+        <div class="tempo">
+          <div class="slider slider--tempo" data-slider="tempo">
+            <input
+              class="slider__input"
+              type="range"
+              min="60"
+              max="180"
+              step="1"
+              value="120"
+            />
+            <div class="slider__footer">
+              <span class="slider__title">TEMPO</span>
+              <span class="slider__value">120 BPM</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="src/script.js"></script>
+  </body>
+</html>
