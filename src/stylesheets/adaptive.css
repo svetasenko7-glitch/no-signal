@@ -4,6 +4,7 @@
     }
 
     .app__main {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
         gap: var(--gap-lg);
     }
@@ -14,16 +15,20 @@
     }
 
     .transport {
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     }
 
     .button--large {
         margin-left: 0;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
         flex: 1;
         min-width: 60px;
     }
 
     .sequencer-row {
+        -ms-grid-columns: 70px var(--gap-sm) 36px var(--gap-sm) 36px var(--gap-sm) 36px var(--gap-sm) 36px var(--gap-sm) 36px var(--gap-sm) 36px var(--gap-sm) 36px var(--gap-sm) 36px;
         grid-template-columns: 70px repeat(8, 36px);
         gap: var(--gap-sm);
     }
@@ -34,6 +39,14 @@
 }
 
 @media (max-width: 640px) {
+    .toggle {
+        min-width: 36px;
+        min-height: 36px;
+    }
+    .button {
+        min-width: 36px;
+        min-height: 36px;
+    }
     .app {
         padding: var(--gap-md);
         gap: var(--gap-md);
@@ -45,7 +58,10 @@
     }
 
     .stations {
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
         gap: var(--gap-xs);
     }
@@ -65,13 +81,14 @@
     }
 
     .panel__knobs {
-        grid-template-columns: 1fr;
+        -ms-grid-columns: 1fr;
         gap: var(--gap-md);
     }
 
     .sequencer-row {
-        grid-template-columns: 60px repeat(8, 1fr);
-        gap: var(--gap-xs);
+        -ms-grid-columns: 60px var(--gap-sm) 24px var(--gap-sm) 24px var(--gap-sm) 24px var(--gap-sm) 24px var(--gap-sm) 24px var(--gap-sm) 24px var(--gap-sm) 24px var(--gap-sm) 24px;
+        grid-template-columns: 60px repeat(8, 24px);
+        gap: var(--gap-sm);
     }
 
     .step {
@@ -83,7 +100,10 @@
     }
 
     .transport {
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
         align-items: stretch;
         gap: var(--gap-sm);
     }
@@ -91,14 +111,17 @@
     .transport .toggle,
     .transport .button {
         width: 100%;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
 
     .button--large {
-        flex: none;
+        -webkit-box-flex: 0;
         min-width: auto;
         margin-left: 0;
     }
+
 }
 
 @media (max-width: 400px) {
@@ -113,7 +136,8 @@
     }
 
     .sequencer-row {
-        grid-template-columns: 50px repeat(8, 1fr);
+        -ms-grid-columns: 50px (20px)[8];
+        grid-template-columns: 50px repeat(8, 20px);
     }
 
     .step {

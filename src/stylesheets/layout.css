@@ -38,6 +38,7 @@ h2 {
 
 a {
     color: var(--c-acid-green);
+    -webkit-transition: opacity 0.2s ease;
     transition: opacity 0.2s ease;
 }
 
@@ -46,7 +47,12 @@ a:hover {
 }
 
 .app {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     gap: var(--gap-lg);
     max-width: 1920px;
@@ -56,22 +62,38 @@ a:hover {
 }
 
 .app__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     gap: var(--gap-md);
     padding-bottom: var(--gap-md);
     border-bottom: var(--border-w-thin) solid var(--c-border);
 }
+
 .app__title {
     margin: 0;
 }
 
 .stations {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: var(--gap-sm);
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -86,7 +108,14 @@ a:hover {
     background-color: transparent;
     border: var(--border-w) solid var(--c-border);
     cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
+    -webkit-transition:
+        background-color 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease;
     transition:
         background-color 0.15s ease,
         color 0.15s ease,
@@ -107,14 +136,21 @@ a:hover {
 
 
 .app__main {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr var(--gap-xl) 1fr;
     grid-template-columns: 1fr 1fr;
     gap: var(--gap-xl);
     position: relative;
 }
 
 .panel {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     gap: var(--gap-md);
     padding: var(--gap-lg);
@@ -138,7 +174,9 @@ a:hover {
 }
 
 .panel__knobs {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr var(--gap-md) 1fr var(--gap-md) 1fr;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--gap-md);
     justify-items: center;
@@ -146,10 +184,19 @@ a:hover {
 }
 
 .toggle-set {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
     gap: var(--gap-sm);
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
 }
 
@@ -161,15 +208,24 @@ a:hover {
 }
 
 .toggle-set__buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     gap: var(--gap-sm);
 }
 
 .toggle {
     position: relative;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     min-width: 48px;
     min-height: 48px;
@@ -183,7 +239,14 @@ a:hover {
     background-color: transparent;
     border: var(--border-w) solid var(--c-text);
     cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
+    -webkit-transition:
+        background-color 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease;
     transition:
         background-color 0.15s ease,
         color 0.15s ease,
@@ -216,7 +279,20 @@ a:hover {
     background-color: var(--c-acid-green);
     border-color: var(--c-acid-green);
     color: var(--c-text-dark);
+    -webkit-animation: drone-pulse 1s ease-in-out infinite;
     animation: drone-pulse 1s ease-in-out infinite;
+}
+
+@-webkit-keyframes drone-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
 }
 
 @keyframes drone-pulse {
@@ -232,10 +308,22 @@ a:hover {
 }
 
 .knob {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 
@@ -252,6 +340,7 @@ a:hover {
     border: var(--border-w) solid var(--c-text);
     border-radius: 50%;
     cursor: pointer;
+    -webkit-transition: border-color 0.2s ease;
     transition: border-color 0.2s ease;
 }
 
@@ -264,11 +353,16 @@ a:hover {
     position: absolute;
     top: 6px;
     left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 3px;
     height: 14px;
     background-color: var(--c-acid-green);
+    -webkit-transition: -webkit-transform 0.15s ease;
+    transition: -webkit-transform 0.15s ease;
     transition: transform 0.15s ease;
+    transition: transform 0.15s ease, -webkit-transform 0.15s ease;
 }
 
 .knob--noise .knob__body::before {
@@ -296,16 +390,29 @@ a:hover {
 }
 
 .slider {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
     align-items: stretch;
     gap: var(--gap-sm);
     width: 100%;
 }
 
 .slider__footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 100%;
 }
@@ -329,6 +436,7 @@ a:hover {
 
 .slider__input {
     -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     width: 100%;
     height: 4px;
@@ -381,7 +489,12 @@ a:hover {
 }
 
 .app__sequencer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     gap: var(--gap-lg);
     padding: var(--gap-lg);
@@ -397,16 +510,27 @@ a:hover {
 }
 
 .sequencer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     gap: var(--gap-md);
 }
 
 .sequencer-row {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 80px var(--gap-md) 40px var(--gap-md) 40px var(--gap-md) 40px var(--gap-md) 40px var(--gap-md) 40px var(--gap-md) 40px var(--gap-md) 40px var(--gap-md) 40px;
     grid-template-columns: 80px repeat(8, 40px);
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     gap: var(--gap-md);
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
 }
 
@@ -433,6 +557,9 @@ a:hover {
     background-color: transparent;
     border: var(--border-w-thin) solid var(--c-border);
     cursor: pointer;
+    -webkit-transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease;
     transition:
         background-color 0.15s ease,
         border-color 0.15s ease;
@@ -454,15 +581,30 @@ a:hover {
 }
 
 .step--playing {
+    -webkit-animation: step-pulse 0.5s ease-in-out infinite alternate;
     animation: step-pulse 0.5s ease-in-out infinite alternate;
 }
 
-@keyframes step-pulse {
+@-webkit-keyframes step-pulse {
     from {
+        -webkit-transform: scale(1);
         transform: scale(1);
     }
 
     to {
+        -webkit-transform: scale(1.08);
+        transform: scale(1.08);
+    }
+}
+
+@keyframes step-pulse {
+    from {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    to {
+        -webkit-transform: scale(1.08);
         transform: scale(1.08);
     }
 }
@@ -474,7 +616,11 @@ a:hover {
 
 
 .transport {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     gap: var(--gap-md);
     margin-top: var(--gap-sm);
@@ -482,9 +628,17 @@ a:hover {
 
 
 .button {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     min-width: 48px;
     min-height: 48px;
@@ -497,12 +651,31 @@ a:hover {
     background-color: transparent;
     border: var(--border-w) solid var(--c-text);
     cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
+    -webkit-transition:
+        background-color 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease,
+        -webkit-transform 0.1s ease;
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease,
+        -webkit-transform 0.1s ease;
     transition:
         background-color 0.15s ease,
         color 0.15s ease,
         border-color 0.15s ease,
         transform 0.1s ease;
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.1s ease,
+        -webkit-transform 0.1s ease;
 }
 
 .button:hover {
@@ -510,6 +683,8 @@ a:hover {
 }
 
 .button:active {
+    -webkit-transform: translate(1px, 1px);
+    -ms-transform: translate(1px, 1px);
     transform: translate(1px, 1px);
 }
 
@@ -544,8 +719,15 @@ a:hover {
 }
 
 .tempo {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
     align-items: stretch;
     gap: var(--gap-md);
     margin-top: var(--gap-sm);
@@ -578,50 +760,110 @@ body::after {
     opacity: 0.03;
     pointer-events: none;
     z-index: 9998;
+    -webkit-animation: noise-shift 0.5s steps(3, end) infinite;
     animation: noise-shift 0.5s steps(3, end) infinite;
 }
 
-@keyframes noise-shift {
+@-webkit-keyframes noise-shift {
     0% {
+        -webkit-transform: translate(0, 0);
         transform: translate(0, 0);
     }
 
     33% {
+        -webkit-transform: translate(-2%, -2%);
         transform: translate(-2%, -2%);
     }
 
     66% {
+        -webkit-transform: translate(2%, 1%);
         transform: translate(2%, 1%);
     }
 
     100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes noise-shift {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+
+    33% {
+        -webkit-transform: translate(-2%, -2%);
+        transform: translate(-2%, -2%);
+    }
+
+    66% {
+        -webkit-transform: translate(2%, 1%);
+        transform: translate(2%, 1%);
+    }
+
+    100% {
+        -webkit-transform: translate(0, 0);
         transform: translate(0, 0);
     }
 }
 
 
 .app__main.is-glitching {
+    -webkit-animation: glitch-shift 0.1s steps(2, end) infinite;
     animation: glitch-shift 0.1s steps(2, end) infinite;
 }
 
-@keyframes glitch-shift {
+@-webkit-keyframes glitch-shift {
     0% {
+        -webkit-transform: translate(0, 0);
         transform: translate(0, 0);
     }
 
     25% {
+        -webkit-transform: translate(-2px, 1px);
         transform: translate(-2px, 1px);
     }
 
     50% {
+        -webkit-transform: translate(2px, -1px);
         transform: translate(2px, -1px);
     }
 
     75% {
+        -webkit-transform: translate(-1px, -2px);
         transform: translate(-1px, -2px);
     }
 
     100% {
+        -webkit-transform: translate(1px, 2px);
+        transform: translate(1px, 2px);
+    }
+}
+
+@keyframes glitch-shift {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+
+    25% {
+        -webkit-transform: translate(-2px, 1px);
+        transform: translate(-2px, 1px);
+    }
+
+    50% {
+        -webkit-transform: translate(2px, -1px);
+        transform: translate(2px, -1px);
+    }
+
+    75% {
+        -webkit-transform: translate(-1px, -2px);
+        transform: translate(-1px, -2px);
+    }
+
+    100% {
+        -webkit-transform: translate(1px, 2px);
         transform: translate(1px, 2px);
     }
 }
@@ -630,21 +872,42 @@ body::after {
     content: '';
     position: absolute;
     inset: 0;
+    background: -webkit-gradient(linear,
+            left top, right top,
+            from(transparent),
+            color-stop(45%, rgba(255, 42, 42, 0.15)),
+            color-stop(55%, rgba(255, 42, 42, 0.15)),
+            to(transparent));
     background: linear-gradient(90deg,
             transparent 0%,
             rgba(255, 42, 42, 0.15) 45%,
             rgba(255, 42, 42, 0.15) 55%,
             transparent 100%);
     pointer-events: none;
+    -webkit-animation: glitch-scan 0.15s linear infinite;
     animation: glitch-scan 0.15s linear infinite;
 }
 
-@keyframes glitch-scan {
+@-webkit-keyframes glitch-scan {
     from {
+        -webkit-transform: translateX(-100%);
         transform: translateX(-100%);
     }
 
     to {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+}
+
+@keyframes glitch-scan {
+    from {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+
+    to {
+        -webkit-transform: translateX(100%);
         transform: translateX(100%);
     }
 }
@@ -654,23 +917,46 @@ body::after {
     background-color: var(--c-glitch-red);
     color: var(--c-text-dark);
     border-color: var(--c-glitch-red);
+    -webkit-animation: glitch-flash 0.15s steps(2, end) infinite;
     animation: glitch-flash 0.15s steps(2, end) infinite;
 }
 
-@keyframes glitch-flash {
+@-webkit-keyframes glitch-flash {
     0% {
         background-color: var(--c-glitch-red);
+        -webkit-transform: translate(0, 0);
         transform: translate(0, 0);
     }
 
     50% {
         background-color: #ff0000;
+        -webkit-transform: translate(-2px, 1px);
         transform: translate(-2px, 1px);
     }
 
     100% {
         background-color: var(--c-glitch-red);
+        -webkit-transform: translate(2px, -1px);
         transform: translate(2px, -1px);
     }
 }
 
+@keyframes glitch-flash {
+    0% {
+        background-color: var(--c-glitch-red);
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+
+    50% {
+        background-color: #ff0000;
+        -webkit-transform: translate(-2px, 1px);
+        transform: translate(-2px, 1px);
+    }
+
+    100% {
+        background-color: var(--c-glitch-red);
+        -webkit-transform: translate(2px, -1px);
+        transform: translate(2px, -1px);
+    }
+}
